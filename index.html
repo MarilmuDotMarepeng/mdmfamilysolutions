@@ -94,7 +94,7 @@ ads_hamidah.html<!DOCTYPE html>
     
 .main-content {
   padding-top: 60px;
-  padding-bottom: 80px;
+  padding-bottom: 120px;
 }
 
 /* Header Ad */
@@ -112,10 +112,10 @@ ads_hamidah.html<!DOCTYPE html>
   border-bottom-left-radius: 12px;
   border-bottom-right-radius: 12px;
   display: flex;
-  justify-content: center; /* Tombol berada di tengah dalam satu baris */
+  justify-content: center;
   align-items: center;
   pointer-events: auto;
-  flex-wrap: nowrap; /* Tombol tidak pindah ke baris berikutnya */
+  flex-wrap: nowrap;
 }
 
 /* Footer Ad */
@@ -133,10 +133,10 @@ ads_hamidah.html<!DOCTYPE html>
   border-top-left-radius: 12px;
   border-top-right-radius: 12px;
   display: flex;
-  justify-content: center; /* Tombol berada di tengah dalam satu baris */
+  justify-content: center;
   align-items: center;
   pointer-events: auto;
-  flex-wrap: nowrap; /* Tombol tidak pindah ke baris berikutnya */
+  flex-wrap: nowrap; 
 }
 
 /* Navigation Buttons */
@@ -150,12 +150,12 @@ ads_hamidah.html<!DOCTYPE html>
   font-weight: bold;
   cursor: pointer;
   transition: background 0.3s ease;
-  margin: 8px; /* Memberikan ruang antar tombol */
+  margin: 8px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   text-decoration: none;
-  white-space: nowrap; /* Mencegah pemisahan teks pada baris baru */
+  white-space: nowrap;
 }
 
 /* Button Hover and Active States */
@@ -168,29 +168,29 @@ ads_hamidah.html<!DOCTYPE html>
 }
 
 .nav-btn i {
-  margin-right: 8px; /* Memberikan ruang antar ikon dan teks */
+  margin-right: 8px;
 }
 
 /* Responsiveness for Smaller Screens */
 @media screen and (max-width: 768px) {
   .header-ad, .footer-ad {
-    justify-content: space-evenly; /* Tombol tetap tersebar merata */
+    justify-content: space-evenly;
   }
 
   .nav-btn {
     padding: 10px 14px;
     font-size: 14px;
-    margin: 6px; /* Mengurangi margin agar tombol lebih rapat */
+    margin: 6px; 
   }
 }
 
 @media screen and (min-width: 768px) {
   .header-ad, .footer-ad {
-    justify-content: space-evenly; /* Tombol tersebar merata */
+    justify-content: space-evenly; 
   }
 
   .nav-btn {
-    width: auto; /* Tombol akan disesuaikan lebar otomatis */
+    width: auto;
   }
 }
 
@@ -224,7 +224,7 @@ ads_hamidah.html<!DOCTYPE html>
     }
 
     #userInfoWrapper strong {
-      font-size: 40px;
+      font-size: 30px;
       display: block;
       margin-bottom: 6px;
       color: #222;
@@ -322,7 +322,7 @@ ads_hamidah.html<!DOCTYPE html>
     
 /* Container for the ad iframe */
 #ad-frame-container {
-  width: 100%; 
+  width: 100%;
   max-width: 728px;
   margin: 0 auto;
   background-color: transparent;
@@ -367,7 +367,6 @@ ads_hamidah.html<!DOCTYPE html>
   </style>
 </head>
 <body>
-
 <!-- LOGIN POPUP -->
 <div id="loginPopup">
 <div id="ad-frame-container">
@@ -382,11 +381,6 @@ ads_hamidah.html<!DOCTYPE html>
     <div id="loginError"></div>
     <button onclick="login()">Masuk</button>
   </div>
-
-<div id="ad-frame-container">
-<iframe data-aa="2393455" src="//ad.a-ads.com/2393455?size=728x90" style="width:100%; height:90px; border:0; padding:0; overflow:hidden; background-color:transparent;" scrolling="no" frameborder="0">
-    </iframe> <a href="https://aads.com/campaigns/new/?source_id=2393455&source_type=ad_unit&partner=2393455" target="_blank" class="ad-link">Kunjungi kami!</a>
-</div>
 </div>
 
 <!-- Header Ad Section -->
@@ -395,17 +389,13 @@ ads_hamidah.html<!DOCTYPE html>
     <i class="fas fa-home"></i> Home
   </a>
   <a href="#" class="nav-btn">
-    <i class="fas fa-search"></i> Cari
-  </a>
-  <a href="#" class="nav-btn">
     <i class="fas fa-info-circle"></i> Info
   </a>
   <a href="#" class="nav-btn">
-    <i class="fas fa-cogs"></i> Pengaturan
+    <i class="fas fa-user"></i> Akun
   </a>
   <a href="#" class="nav-btn">
-    <i class="fas fa-user"></i> Profil
-  </a>
+    <i class="fas fa-cogs"></i> User</a>
 </div>
 
 <!-- KONTEN UTAMA -->
@@ -423,10 +413,6 @@ ads_hamidah.html<!DOCTYPE html>
 </div>
 
 <button class="logout" onclick="logout()">Logout</button>
-<div id="ad-frame-container">
-<iframe data-aa="2393455" src="//ad.a-ads.com/2393455?size=728x90" style="width:100%; height:90px; border:0; padding:0; overflow:hidden; background-color:transparent;" scrolling="no" frameborder="0">
-    </iframe> <a href="https://aads.com/campaigns/new/?source_id=2393455&source_type=ad_unit&partner=2393455" target="_blank" class="ad-link">Kunjungi kami!</a>
-</div>
 
 <div id="loading">Memuat iklan...</div>
 
@@ -435,28 +421,12 @@ ads_hamidah.html<!DOCTYPE html>
 </div>
 </div>
 
-<div id="ad-frame-container">
+<!-- Footer Ad Section -->
+<div class="footer-ad">
+  <div id="ad-frame-container">
 <iframe data-aa="2393455" src="//ad.a-ads.com/2393455?size=728x90" style="width:100%; height:90px; border:0; padding:0; overflow:hidden; background-color:transparent;" scrolling="no" frameborder="0">
     </iframe> <a href="https://aads.com/campaigns/new/?source_id=2393455&source_type=ad_unit&partner=2393455" target="_blank" class="ad-link">Kunjungi kami!</a>
 </div>
-
-<!-- Footer Ad Section -->
-<div class="footer-ad">
-  <a href="#" class="nav-btn">
-    <i class="fas fa-phone"></i> Kontak
-  </a>
-  <a href="#" class="nav-btn">
-    <i class="fas fa-question-circle"></i> Bantuan
-  </a>
-  <a href="#" class="nav-btn">
-    <i class="fas fa-clipboard-list"></i> Daftar
-  </a>
-  <a href="#" class="nav-btn">
-    <i class="fas fa-comment-dots"></i> Pesan
-  </a>
-  <a href="#" class="nav-btn">
-    <i class="fas fa-sign-out-alt"></i> Logout
-  </a>
 </div>
 
 
