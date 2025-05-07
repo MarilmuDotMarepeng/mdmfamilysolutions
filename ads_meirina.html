@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Iklan Meirina Yustika</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Segoe UI', sans-serif;
+        background-color: #ffffff;
+        color: #0088cc;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+
+      .container {
+        text-align: center;
+        padding: 30px;
+        border: 2px solid #0088cc;
+        border-radius: 20px;
+        box-shadow: 0 10px 25px rgba(0, 136, 204, 0.15);
+        max-width: 400px;
+        width: 90%;
+      }
+
+      h1 {
+        font-size: 24px;
+        margin-bottom: 20px;
+        font-weight: bold;
+      }
+
+      #countdown {
+        font-size: 64px;
+        font-weight: bold;
+        margin: 20px 0;
+        transition: all 0.3s ease-in-out;
+      }
+
+      .message {
+        font-size: 16px;
+        margin-bottom: 20px;
+      }
+
+      @media (max-width: 500px) {
+        .container {
+          padding: 20px;
+        }
+        #countdown {
+          font-size: 48px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Tunggu sebentar...</h1>
+      <div id="countdown">5</div>
+  <div class="message">Meirina Yustika</div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const countdownEl = document.getElementById("countdown");
+        let seconds = 5;
+
+        const iklanUrl = "https://your-monetag-directlink.com";
+
+        const timer = setInterval(() => {
+          seconds--;
+          countdownEl.textContent = seconds;
+
+          if (seconds <= 0) {
+            clearInterval(timer);
+
+            const win = window.open(iklanUrl, "_blank");
+
+            if (win) {
+              window.location.href = iklanUrl;
+            } else {
+              alert("Silakan izinkan pop-up untuk melanjutkan.");
+              window.location.href = iklanUrl;
+            }
+          }
+        }, 1000);
+      });
+    </script>
+  </body>
+</html>

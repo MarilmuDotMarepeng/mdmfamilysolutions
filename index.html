@@ -1,0 +1,441 @@
+ads_hamidah.html<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Family Technology</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Website PTC Mini App, Family Technology">
+  <link rel="icon" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgUmv7cwPmzjoThvUQwEmxaL0cd2SFdE4FBIZ7wVQjz1qjOrQpJHbYy_rOJSS6uTrTKeBykfmsINPFi6TqCAYEzCLzHUYj12ffbLET7_lkrLE6bLXy_NrRY5GmIEEXH5HBpbYhPcIiab8cuNitEJTaRjw1iNhWbDh0sLzuF1a3eubCt1ASIxoQJkodaMZc/w150-h150-p-k-no-nu-rw-e90/Marilmu%20Dot%20Marepeng.png" type="image/png">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: 'Roboto', sans-serif;
+      background-color: #f2f4f7;
+      color: #333;
+    }
+
+    /* Login Popup Fullscreen */
+    #loginPopup {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      flex-direction: column;
+    }
+
+    .login-box {
+      width: 90%;
+      max-width: 360px;
+      background: #ffffff;
+      padding: 24px;
+      border-radius: 14px;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .login-box h3 {
+      text-align: left;
+      font-size: 22px;
+      margin-bottom: 20px;
+      color: #222;
+      font-weight: bold;
+    }
+
+    .login-box input {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 16px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+      transition: border-color 0.3s;
+    }
+
+    .login-box input:focus {
+      border-color: #34b7f1;
+      outline: none;
+      box-shadow: 0 0 5px rgba(52, 183, 241, 0.4);
+    }
+
+    .login-box button {
+      width: 100%;
+      padding: 14px;
+      background: #34b7f1;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .login-box button:hover {
+      background: #0088cc;
+    }
+
+    #loginError {
+      color: #e74c3c;
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+    
+.main-content {
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+.header-ad {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #0088cc;
+  color: white;
+  text-align: center;
+  padding: 12px 8px;
+  font-size: 16px;
+  font-weight: bold;
+  z-index: 1000;
+}
+
+.footer-ad {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #0088cc;
+  color: white;
+  text-align: center;
+  padding: 12px 8px;
+  font-size: 16px;
+  font-weight: bold;
+  z-index: 1000;
+}
+
+  .status-card {
+  width: 100%;
+  max-width: 100%;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  padding: 16px;
+  margin-top: 20px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.status-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  font-size: 15px;
+  color: #333;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.status-row:last-child {
+  border-bottom: none;
+}
+
+    #userInfoWrapper {
+      text-align: center;
+      padding: 16px 12px;
+    }
+
+    #userInfoWrapper strong {
+      font-size: 18px;
+      display: block;
+      margin-bottom: 6px;
+      color: #222;
+    }
+
+    #userInfo {
+      font-size: 14px;
+      color: #555;
+    }
+
+    #adsContainer {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      padding: 16px;
+    }
+
+    .ad-box {
+      background: #fff;
+      border-radius: 10px;
+      padding: 16px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .ad-box:hover {
+      transform: scale(1.03);
+    }
+
+    .btn {
+      margin-top: 12px;
+      padding: 12px;
+      width: 100%;
+      background: #0088cc;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .btn:disabled {
+      background: #bbb;
+      cursor: not-allowed;
+    }
+
+    .info {
+      margin-top: 6px;
+      font-size: 13px;
+      color: #666;
+    }
+
+    .logout {
+      display: block;
+      margin: 15px auto;
+      padding: 12px 24px;
+      background: #e74c3c;
+      color: white;
+      width: 90%;
+      border: none;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .logout:hover {
+      background: #c0392b;
+    }
+
+    #loading {
+      display: none;
+      background: #fff3cd;
+      color: #856404;
+      text-align: center;
+      padding: 12px;
+      font-size: 14px;
+    }
+
+    @media screen and (min-width: 500px) {
+      #adsContainer {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media screen and (min-width: 768px) {
+      #adsContainer {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- LOGIN POPUP -->
+<div id="loginPopup">
+  <div class="login-box">
+    <h3>Login: Admin</h3>
+    <input type="text" id="username" placeholder="Nama">
+    <input type="password" id="password" placeholder="Pasword">
+    <div id="loginError"></div>
+    <button onclick="login()">Masuk</button>
+  </div>
+</div>
+
+<div class="header-ad">[Header Iklan Monetag]</div>
+<!-- KONTEN UTAMA -->
+<div class="main-content">
+<div id="statusBar">Status: Siap digunakan</div>
+
+<div id="userInfoWrapper">
+  <strong id="displayName">Admin</strong>
+  <span id="userInfo">Selamat datang!</span>
+</div>
+
+<button class="logout" onclick="logout()">Logout</button>
+
+<div id="loading">Memuat iklan...</div>
+
+<div id="adsContainer">
+  <!-- Iklan akan diisi via JS -->
+</div>
+</div>
+
+<div class="footer-ad">[Footer Iklan Monetag]</div>
+
+<script>
+  const USERS = [
+    { name: "Hamidah Nur", password: "Hamidah Nur", adUrl: "ads_hamidah.html" },
+    { name: "Meirina Yustika", password: "Meirina Yustika", adUrl: "ads_meirina.html" },
+    { name: "Fitri Nur Hayati", password: "Fitri Nur Hayati", adUrl: "ads_fitrinur.html" },
+    { name: "Julya Amanda", password: "Julya Amanda", adUrl: "ads_julya.html" },
+    { name: "Ahmad Ismail Al Malik", password: "Ahmad Ismail Al Malik", adUrl: "ads_ahdismail.html" }
+  ];
+
+  const MAX_PER_AD = 1000;
+  const CLICK_INTERVAL = 10 * 1000;
+  const RESET_TIME = 24 * 60 * 60 * 1000;
+  const POINTS_PER_CLICK = 10;
+
+  function login() {
+    const uname = document.getElementById('username').value.trim();
+    const pass = document.getElementById('password').value.trim();
+    const user = USERS.find(u => u.name === uname && u.password === pass);
+
+    if (user) {
+      localStorage.setItem('ptc_user', user.name);
+      localStorage.setItem('ptc_adUrl', user.adUrl);
+      localStorage.setItem('ptc_clickmap', JSON.stringify({}));
+      localStorage.setItem('ptc_lastclick', '0');
+      localStorage.setItem('ptc_lastreset', Date.now());
+      localStorage.setItem('ptc_points', '0');
+      document.getElementById('loginPopup').style.display = 'none';
+      renderDashboard();
+    } else {
+      document.getElementById('loginError').textContent = 'Username atau Password salah.';
+    }
+  }
+
+  function logout() {
+    localStorage.clear();
+    location.reload();
+  }
+
+  function resetClicksIfNeeded() {
+    const lastReset = parseInt(localStorage.getItem('ptc_lastreset') || '0');
+    if (Date.now() - lastReset > RESET_TIME) {
+      localStorage.setItem('ptc_clickmap', JSON.stringify({}));
+      localStorage.setItem('ptc_points', '0');
+      localStorage.setItem('ptc_lastreset', Date.now());
+    }
+  }
+
+  function updateStatus() {
+  const map = JSON.parse(localStorage.getItem('ptc_clickmap') || '{}');
+  const total = Object.values(map).reduce((a, b) => a + b, 0);
+  const points = parseInt(localStorage.getItem('ptc_points') || '0');
+  const user = localStorage.getItem('ptc_user') || '-';
+  const nextReset = new Date(parseInt(localStorage.getItem('ptc_lastreset') || '0') + RESET_TIME);
+
+  document.getElementById('statusBar').innerHTML = `
+    <div class="status-card">
+      <div class="status-row"><span>Nama Saya:</span><span>${user}</span></div>
+      <div class="status-row"><span>Total Klik Hari ini:</span><span>${total}</span></div>
+      <div class="status-row"><span>Poin Saya:</span><span>${points}</span></div>
+      <div class="status-row"><span>Waktu Akhir Kerja:</span><span>${nextReset.toLocaleString()}</span></div>
+    </div>
+  `;
+}
+
+  function updatePoints() {
+    const points = parseInt(localStorage.getItem('ptc_points') || '0');
+    localStorage.setItem('ptc_points', points + POINTS_PER_CLICK);
+  }
+
+  function renderDashboard() {
+    resetClicksIfNeeded();
+    const name = localStorage.getItem('ptc_user');
+    const points = localStorage.getItem('ptc_points');
+    document.getElementById('displayName').textContent = name;
+    document.getElementById('userInfo').textContent = `Level: Admin | Poin: ${points}`;
+
+    const map = JSON.parse(localStorage.getItem('ptc_clickmap') || '{}');
+    const container = document.getElementById('adsContainer');
+    container.innerHTML = '';
+
+    USERS.filter(u => u.name !== name).forEach(u => {
+      const clicks = map[u.name] || 0;
+
+      const box = document.createElement('div');
+      box.className = 'ad-box';
+      box.innerHTML = `<strong>${u.name}</strong>`;
+
+      const btn = document.createElement('button');
+      btn.className = 'btn';
+      btn.textContent = clicks >= MAX_PER_AD ? 'Klik Selesai' : 'Tonton Iklan';
+      btn.disabled = clicks >= MAX_PER_AD;
+      btn.onclick = () => handleClick(u.adUrl, u.name, btn);
+
+      const info = document.createElement('div');
+      info.className = 'info';
+      info.textContent = `Klik: ${clicks}/${MAX_PER_AD}`;
+
+      box.appendChild(btn);
+      box.appendChild(info);
+      container.appendChild(box);
+    });
+
+    updateStatus();
+  }
+
+  function startCountdown(button, seconds) {
+    let remaining = seconds;
+    button.disabled = true;
+    const interval = setInterval(() => {
+      button.textContent = `Tunggu ${remaining--} detik...`;
+      if (remaining < 0) {
+        clearInterval(interval);
+        button.disabled = false;
+        button.textContent = 'Tonton Iklan';
+      }
+    }, 1000);
+  }
+
+  function handleClick(url, owner, button) {
+    const map = JSON.parse(localStorage.getItem('ptc_clickmap') || '{}');
+    const lastClick = parseInt(localStorage.getItem('ptc_lastclick') || '0');
+    const now = Date.now();
+
+    if ((map[owner] || 0) >= MAX_PER_AD) return alert('Batas klik iklan ini tercapai.');
+
+    if (now - lastClick < CLICK_INTERVAL) {
+      const wait = Math.ceil((CLICK_INTERVAL - (now - lastClick)) / 1000);
+      startCountdown(button, wait);
+      return;
+    }
+
+    document.getElementById('loading').style.display = 'block';
+    button.disabled = true;
+
+    setTimeout(() => {
+      window.open(url, '_blank');
+      map[owner] = (map[owner] || 0) + 1;
+      localStorage.setItem('ptc_clickmap', JSON.stringify(map));
+      localStorage.setItem('ptc_lastclick', now);
+      updatePoints();
+      document.getElementById('loading').style.display = 'none';
+      renderDashboard();
+    }, 1000);
+  }
+
+  window.onload = () => {
+    if (localStorage.getItem('ptc_user')) {
+      document.getElementById('loginPopup').style.display = 'none';
+      renderDashboard();
+    }
+  };
+</script>
+</body>
+</html>
