@@ -93,7 +93,7 @@
     }
     
 .main-content {
-  padding-top: 60px;
+  padding-top: 80px;
   padding-bottom: 120px;
 }
 
@@ -103,19 +103,38 @@
   top: 0;
   left: 0;
   width: 100%;
-  backdrop-filter: blur(6px);
-  background-color: rgba(255, 255, 255, 0.9);
-  text-align: center;
-  padding: 12px 0;
+  height: 77px;
+  backdrop-filter: blur(7px);
+  background-color: #0088cc;
+  padding: 0 17px;
   z-index: 1000;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 2px 7px rgba(0, 0, 0, 0.08);
   border-bottom-left-radius: 12px;
   border-bottom-right-radius: 12px;
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Profile Icon (Left) */
+.header-ad .profile-icon {
+  width: 47px;
+  height: 47px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.99);
+  display: flex;
   justify-content: center;
   align-items: center;
-  pointer-events: auto;
-  flex-wrap: nowrap;
+  color: #34b7f1;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+/* Branding Text (Right) */
+.header-ad .brand-text {
+  font-size: 24px;
+  font-weight: bold;
+  color: rgba(255, 255, 255, 0.99);
 }
 
 /* Footer Ad */
@@ -124,74 +143,14 @@
   bottom: 0;
   left: 0;
   width: 100%;
+  padding: 3px;
   backdrop-filter: blur(6px);
-  background-color: rgba(255, 255, 255, 0.9);
-  text-align: center;
-  padding: 12px 0;
+  background-color: #0088cc;
   z-index: 1000;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.08);
   border-top-left-radius: 12px;
   border-top-right-radius: 12px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  pointer-events: auto;
-  flex-wrap: nowrap; 
-}
-
-/* Navigation Buttons */
-.nav-btn {
-  background-color: #34b7f1;
-  color: white;
-  border: none;
-  padding: 10px 16px;
-  border-radius: 8px;
-  font-size: 16px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background 0.3s ease;
-  margin: 8px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  white-space: nowrap;
-}
-
-/* Button Hover and Active States */
-.nav-btn:hover {
-  background-color: #0088cc;
-}
-
-.nav-btn:active {
-  background-color: #007bb5;
-}
-
-.nav-btn i {
-  margin-right: 8px;
-}
-
-/* Responsiveness for Smaller Screens */
-@media screen and (max-width: 768px) {
-  .header-ad, .footer-ad {
-    justify-content: space-evenly;
-  }
-
-  .nav-btn {
-    padding: 10px 14px;
-    font-size: 14px;
-    margin: 6px; 
-  }
-}
-
-@media screen and (min-width: 768px) {
-  .header-ad, .footer-ad {
-    justify-content: space-evenly; 
-  }
-
-  .nav-btn {
-    width: auto;
-  }
+  text-align: center;
 }
 
   .status-card {
@@ -325,44 +284,47 @@
   width: 100%;
   max-width: 728px;
   margin: 0 auto;
-  background-color: transparent;
   position: relative;
+  background: linear-gradient(to right, #f9f9f9, #ffffff);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+  border-radius: 1px;
+  overflow: hidden;
+  padding: 1px;
   text-align: center;
-  padding: 0;
   box-sizing: border-box;
 }
 
+/* Iframe styling */
 #ad-frame-container iframe {
   width: 100%;
   height: 90px;
   border: none;
-  padding: 0;
-  margin: 0;
   background-color: transparent;
+  display: block;
 }
 
+/* Advertise Here Link */
 .ad-link {
-  display: block;
-  font-size: 12px;
-  color: #000000;
-  text-decoration: none;
-  background-color: rgba(255, 255, 255, 0.7);
-  padding: 5px 10px;
-  border-radius: 4px;
   position: absolute;
-  right: 10px;
-  bottom: 5px;
-  z-index: 10;
-  transition: background-color 0.3s ease;
+  bottom: 8px;
+  right: 12px;
+  font-size: 13px;
+  color: #ffffff;
+  background-color: #34b7f1;
+  padding: 6px 14px;
+  border-radius: 20px;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .ad-link:hover {
-  background-color: rgba(255, 255, 255, 1);
-  color: #0088cc; 
+  background-color: #0088cc;
+  color: #ffffff;
 }
 
 .ad-link:active {
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: #007bb5;
 }
   </style>
 </head>
@@ -385,17 +347,8 @@
 
 <!-- Header Ad Section -->
 <div class="header-ad">
-  <a href="#" class="nav-btn">
-    <i class="fas fa-home"></i> Home
-  </a>
-  <a href="#" class="nav-btn">
-    <i class="fas fa-info-circle"></i> Info
-  </a>
-  <a href="#" class="nav-btn">
-    <i class="fas fa-user"></i> Akun
-  </a>
-  <a href="#" class="nav-btn">
-    <i class="fas fa-cogs"></i> User</a>
+  <div class="profile-icon">M</div>
+  <div class="brand-text">MDM SOLUTIONS</div>
 </div>
 
 <!-- KONTEN UTAMA -->
@@ -408,6 +361,22 @@
 </div>
 
 <button class="logout" onclick="logout()">Logout</button>
+
+
+<div id="withdrawContainer">
+<button class="logout" id="withdrawButton" onclick="showWithdrawForm()">Withdraw</button>
+<div id="withdrawForm" style="display:none;">
+<label for="faucetpayEmail" style="display:block; font-weight:600; margin-bottom:6px; font-size:14px; color:#2c3e50;">
+  Email FaucetPay:
+</label><input type="email" id="faucetpayEmail" placeholder="Masukkan email FaucetPay" required
+  style="width:100%; padding:10px 14px; border:1px solid #ccc; border-radius:10px; font-size:14px; 
+         box-shadow:inset 0 1px 2px rgba(0,0,0,0.05); transition:all 0.2s ease-in-out;"
+  onfocus="this.style.borderColor='#3498db'; this.style.boxShadow='0 0 0 3px rgba(52,152,219,0.2)';"
+  onblur="this.style.borderColor='#ccc'; this.style.boxShadow='inset 0 1px 2px rgba(0,0,0,0.05)';"
+/>
+        <button class="logout" onclick="handleWithdraw()">Submit</button>
+    </div>
+</div>
 
 <div id="loading">Memuat iklan...</div>
 
@@ -427,12 +396,13 @@
 
 <script>
   const USERS = [
-    { name: "Hamidah Nur", password: "Hamidah Nur", adUrl: "ads_hamidah.html" },
-    { name: "Meirina Yustika", password: "Meirina Yustika", adUrl: "ads_meirina.html" },
-    { name: "Fitri Nur Hayati", password: "Fitri Nur Hayati", adUrl: "ads_fitrinur.html" },
-    { name: "Julya Amanda", password: "Julya Amanda", adUrl: "ads_julya.html" },
-    { name: "Ahmad Ismail Al Malik", password: "Ahmad Ismail Al Malik", adUrl: "ads_ahdismail.html" }
-  ];
+    { name: "Hamidah Nur", password: "Hamidah Nur", adUrl: "ads_hamidah.html", isAdmin: true },
+    { name: "Meirina Yustika", password: "Meirina Yustika", adUrl: "ads_meirina.html", isAdmin: true },
+    { name: "Fitri Nur Hayati", password: "Fitri Nur Hayati", adUrl: "ads_fitrinur.html", isAdmin: true },
+    { name: "Julya Amanda", password: "Julya Amanda", adUrl: "ads_julya.html", isAdmin: true },
+    { name: "Ahmad Ismail Al Malik", password: "Ahmad Ismail Al Malik", adUrl: "ads_ahdismail.html", isAdmin: true },
+    { name: "User", password: "user", adUrl: "", isAdmin: false }
+];
 
   const MAX_PER_AD = 1000;
   const CLICK_INTERVAL = 10 * 1000;
@@ -494,17 +464,40 @@
     localStorage.setItem('ptc_points', points + POINTS_PER_CLICK);
   }
 
-  function renderDashboard() {
-    resetClicksIfNeeded();
-    const name = localStorage.getItem('ptc_user');
-    const points = localStorage.getItem('ptc_points');
-    document.getElementById('displayName').textContent = name;
-    document.getElementById('userInfo').textContent = `Level: Admin | Poin: ${points}`;
+function renderDashboard() {
+  resetClicksIfNeeded();
+  const name = localStorage.getItem('ptc_user');
+  const points = localStorage.getItem('ptc_points');
+  document.getElementById('displayName').textContent = name;
+  document.getElementById('userInfo').textContent = `Level: ${name === 'User' ? 'User' : 'Admin'} | Poin: ${points}`;
 
-    const map = JSON.parse(localStorage.getItem('ptc_clickmap') || '{}');
-    const container = document.getElementById('adsContainer');
-    container.innerHTML = '';
+  const map = JSON.parse(localStorage.getItem('ptc_clickmap') || '{}');
+  const container = document.getElementById('adsContainer');
+  container.innerHTML = '';
 
+  if (name === 'User') {
+    USERS.filter(u => u.name === 'Ahmad Ismail Al Malik').forEach(u => {
+      const clicks = map[u.name] || 0;
+
+      const box = document.createElement('div');
+      box.className = 'ad-box';
+      box.innerHTML = `<strong>${u.name}</strong>`;
+
+      const btn = document.createElement('button');
+      btn.className = 'btn';
+      btn.textContent = clicks >= MAX_PER_AD ? 'Klik Selesai' : 'Tonton Iklan';
+      btn.disabled = clicks >= MAX_PER_AD;
+      btn.onclick = () => handleClick(u.adUrl, u.name, btn);
+
+      const info = document.createElement('div');
+      info.className = 'info';
+      info.textContent = `Klik: ${clicks}/${MAX_PER_AD}`;
+
+      box.appendChild(btn);
+      box.appendChild(info);
+      container.appendChild(box);
+    });
+  } else {
     USERS.filter(u => u.name !== name).forEach(u => {
       const clicks = map[u.name] || 0;
 
@@ -526,9 +519,77 @@
       box.appendChild(info);
       container.appendChild(box);
     });
-
-    updateStatus();
   }
+
+  // Sembunyikan tombol withdraw untuk admin
+  const withdrawBtn = document.getElementById('withdrawContainer');
+  if (withdrawBtn) {
+    withdrawBtn.style.display = name === 'User' ? 'block' : 'none';
+  }
+
+  updateStatus();
+}
+
+function handleWithdraw() {
+    const points = parseInt(localStorage.getItem('ptc_points') || '0');
+    const faucetpayEmail = document.getElementById('faucetpayEmail').value.trim();
+
+    // Validasi email dan jumlah poin
+    if (!faucetpayEmail) {
+        alert('Email FaucetPay harus diisi.');
+        return;
+    }
+
+    if (points >= 10) {
+        const dogecoinAmount = (points / 10) * 0.00000001;
+        alert(`Penarikan Anda sedang diproses. Anda akan menerima ${dogecoinAmount} Dogecoin.`);
+        
+        sendDogecoinToFaucetPay(faucetpayEmail, dogecoinAmount, points);
+        
+      localStorage.setItem('ptc_points', '0');
+        renderDashboard();
+    } else {
+        alert('Poin Anda tidak cukup untuk melakukan penarikan.');
+    }
+}
+
+function sendDogecoinToFaucetPay(faucetpayEmail, points) {
+  const apiKey = "80b67838d4c0fb5f9be8c40cc7b8f99240fb1f3491ac7a2df3a794ae7e970189";
+  const rawAmount = points * 0.00000001;
+  const amount = Math.max(rawAmount, 1).toFixed(8); 
+  
+  const formData = new URLSearchParams();
+  formData.append("api_key", apiKey);
+  formData.append("amount", amount);
+  formData.append("currency", "DOGE");
+  formData.append("to", faucetpayEmail);
+
+  fetch("https://faucetpay.io/api/v1/send", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded"
+    },
+    body: formData
+  })
+    .then(res => res.json())
+    .then(data => {
+      console.log("Response FaucetPay:", data);
+      if (data.status === 200) {
+        alert(`Sukses: ${data.message}`);
+      } else {
+        alert(`Gagal: ${data.message || 'Permintaan gagal.'}`);
+      }
+    })
+    .catch(error => {
+      console.error("Error:", error);
+      alert("Kesalahan koneksi.");
+    });
+}
+
+function showWithdrawForm() {
+    const withdrawForm = document.getElementById('withdrawForm');
+    withdrawForm.style.display = 'block';
+}
 
   function startCountdown(button, seconds) {
     let remaining = seconds;
@@ -547,7 +608,7 @@
     const map = JSON.parse(localStorage.getItem('ptc_clickmap') || '{}');
     const lastClick = parseInt(localStorage.getItem('ptc_lastclick') || '0');
     const now = Date.now();
-
+    
     if ((map[owner] || 0) >= MAX_PER_AD) return alert('Batas klik iklan ini tercapai.');
 
     if (now - lastClick < CLICK_INTERVAL) {
