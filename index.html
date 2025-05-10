@@ -281,10 +281,6 @@
   </style>
 </head>
 <body>
-<script src="//static.surfe.pro/js/net.js"></script>
-<ins class="surfe-be" data-sid="412112"></ins>
-<script>(adsurfebe = window.adsurfebe || []).push({});</script>
-  
 <!-- LOGIN POPUP -->
 <div id="loginPopup">
   <div class="login-box">
@@ -573,7 +569,6 @@ function showWithdrawForm() {
   setTimeout(() => {
     window.open(url, '_blank');
 
-    // Simpan waktu setelah iklan benar-benar dibuka
     localStorage.setItem('ptc_pending_click', JSON.stringify({
       owner: owner,
       time: Date.now()
@@ -608,6 +603,29 @@ function showWithdrawForm() {
 
     renderDashboard();
   }
+};
+
+window.onfocus = () => {
+  const pending = JSON.parse(localStorage.getItem('ptc_pending_click') || '{}');
+  if (!pending.owner || !pending.time) return;
+
+  const now = Date.now();
+  const elapsed = now - pending.time;
+
+  if (elapsed >= 10000) {
+    const clickMap = JSON.parse(localStorage.getItem('ptc_clickmap') || '{}');
+    clickMap[pending.owner] = (clickMap[pending.owner] || 0) + 1;
+
+    localStorage.setItem('ptc_clickmap', JSON.stringify(clickMap));
+    localStorage.setItem('ptc_lastclick', now);
+    updatePoints();
+    alert('Klik berhasil dihitung!');
+  } else {
+    alert('Klik terlalu cepat. Silakan tonton iklan lebih lama.');
+  }
+
+  localStorage.removeItem('ptc_pending_click');
+  renderDashboard();
 };
 </script>
 </body>
