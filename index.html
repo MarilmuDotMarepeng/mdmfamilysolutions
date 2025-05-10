@@ -552,39 +552,63 @@ function showWithdrawForm() {
     }, 1000);
   }
 
-  function handleClick(url, owner, button) {
-    const map = JSON.parse(localStorage.getItem('ptc_clickmap') || '{}');
-    const lastClick = parseInt(localStorage.getItem('ptc_lastclick') || '0');
-    const now = Date.now();
-    
-    if ((map[owner] || 0) >= MAX_PER_AD) return alert('Batas klik iklan ini tercapai.');
+ function handleClick(url, owner, button) {
+  const map = JSON.parse(localStorage.getItem('ptc_clickmap') || '{}');
+  const lastClick = parseInt(localStorage.getItem('ptc_lastclick') || '0');
+  const now = Date.now();
 
-    if (now - lastClick < CLICK_INTERVAL) {
-      const wait = Math.ceil((CLICK_INTERVAL - (now - lastClick)) / 1000);
-      startCountdown(button, wait);
-      return;
-    }
-
-    document.getElementById('loading').style.display = 'block';
-    button.disabled = true;
-
-    setTimeout(() => {
-      window.open(url, '_blank');
-      map[owner] = (map[owner] || 0) + 1;
-      localStorage.setItem('ptc_clickmap', JSON.stringify(map));
-      localStorage.setItem('ptc_lastclick', now);
-      updatePoints();
-      document.getElementById('loading').style.display = 'none';
-      renderDashboard();
-    }, 1000);
+  if ((map[owner] || 0) >= MAX_PER_AD) {
+    return alert('Batas klik iklan ini tercapai.');
   }
 
+  if (now - lastClick < CLICK_INTERVAL) {
+    const wait = Math.ceil((CLICK_INTERVAL - (now - lastClick)) / 1000);
+    startCountdown(button, wait);
+    return;
+  }
+
+  document.getElementById('loading').style.display = 'block';
+  button.disabled = true;
+
+  setTimeout(() => {
+    window.open(url, '_blank');
+
+    // Simpan waktu setelah iklan benar-benar dibuka
+    localStorage.setItem('ptc_pending_click', JSON.stringify({
+      owner: owner,
+      time: Date.now()
+    }));
+
+    document.getElementById('loading').style.display = 'none';
+    renderDashboard();
+  }, 1000);
+}
+
   window.onload = () => {
-    if (localStorage.getItem('ptc_user')) {
-      document.getElementById('loginPopup').style.display = 'none';
-      renderDashboard();
+  if (localStorage.getItem('ptc_user')) {
+    document.getElementById('loginPopup').style.display = 'none';
+
+    const data = JSON.parse(localStorage.getItem('ptc_pending_click') || '{}');
+    if (data.time && data.owner) {
+      const now = Date.now();
+      const durasi = now - data.time;
+
+      if (durasi >= 10000) { 
+        const map = JSON.parse(localStorage.getItem('ptc_clickmap') || '{}');
+        map[data.owner] = (map[data.owner] || 0) + 1;
+        localStorage.setItem('ptc_clickmap', JSON.stringify(map));
+        localStorage.setItem('ptc_lastclick', now);
+        updatePoints();
+      } else {
+        alert('Kamu harus membuka iklan minimal 10 detik untuk dapat poin.');
+      }
+
+      localStorage.removeItem('ptc_pending_click');
     }
-  };
+
+    renderDashboard();
+  }
+};
 </script>
 </body>
 </html>
